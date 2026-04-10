@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: hr-assistant-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_KEY_1
+        sync: false          # you'll fill these in the Render dashboard
+      - key: GROQ_KEY_2
+        sync: false
+      - key: GROQ_KEY_3
+        sync: false
+      - key: GROQ_KEY_4
+        sync: false
+      - key: GROQ_KEY_5
+        sync: false
+      - key: GROQ_KEY_6
+        sync: false
+      - key: EMBEDDINGS_FILE
+        value: merged_embeddings.json
+      - key: EMBED_MODEL
+        value: intfloat/multilingual-e5-large
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
+      - key: TOP_K
+        value: "3"
+      - key: CANDIDATES
+        value: "20"
