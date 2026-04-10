@@ -13,13 +13,13 @@ app = FastAPI(
 # ── CORS: allow your friend's frontend to call this API ──────────
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],          # change to your frontend URL in production
+    allow_origins=["*"],      
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ── Load embeddings + model once at startup ──────────────────────
+# ── Load embeddings  ──────────────────────
 @app.on_event("startup")
 async def startup_event():
     load_data()
